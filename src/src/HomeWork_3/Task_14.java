@@ -7,7 +7,7 @@ public class Task_14 {
         int indexMax = 0;
         int indexMin = 0;
         for (int i = 0; i < arr.length; i++) {
-            int cell = arr[i];
+
             if (max < arr[i]) {
                 max = arr[i];
                 indexMax = i;
