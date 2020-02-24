@@ -1,4 +1,4 @@
-package HomeWork_3;
+package src.com.homework3;
 
 public class Task_14 {
     public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class Task_14 {
                 indexMax = i;
             }
         }
-        System.out.println("Max значение = " + max + " в индексе " +  indexMax);
+        System.out.println("Max значение = " + max + " в индексе " + indexMax);
         int min = arr[0];
         for (int j = 0; j < arr.length; j++) {
             if (min > arr[j]) {
@@ -21,7 +21,14 @@ public class Task_14 {
                 indexMin = j;
             }
         }
-        System.out.println("Min значение = " + min + " в индексе " +  indexMin);
+        System.out.println("Min значение = " + min + " в индексе " + indexMin);
+        int sum = 0;
+        int indStart  = Math.min(indexMax, indexMin)+1;
+        int indStop = Math.max(indexMax,indexMin);
 
+        for (int i = indStart; i < indStop; i++) {
+            sum += arr[i];
+        }
+        System.out.println(sum);
     }
 }
