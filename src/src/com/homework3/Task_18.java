@@ -13,6 +13,6 @@ public class Task_18 {
             }
 
         }
-        System.out.println("У нас есть " + n + " знаков припинания");
+        System.out.println("У нас есть " + n + " знака припинания");
     }
 }
