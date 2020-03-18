@@ -14,6 +14,7 @@ public class Task_14 {
             }
         }
         System.out.println("Max значение = " + max + " в индексе " + indexMax);
+
         int min = arr[0];
         for (int j = 0; j < arr.length; j++) {
             if (min > arr[j]) {
