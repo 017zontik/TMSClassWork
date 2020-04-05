@@ -29,7 +29,7 @@ public class Task33 {
             }
             System.out.println("Количество слов: " + allWordsCounter );
             System.out.println("Количество знаков препинания: " + allPunctualCounter );
-
+            stream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
