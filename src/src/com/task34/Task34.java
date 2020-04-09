@@ -5,14 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task34 {
     public static void main(String[] args) {
-        ArrayList <Integer> numbers = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("numbers.txt"));
+        List<Integer> numbers = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("numbers.txt"))){
+
             String line =reader.readLine();
 
             while (line != null){
@@ -25,7 +26,7 @@ public class Task34 {
                 line = reader.readLine();
             }
             System.out.println(numbers);
-            reader.close();
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -34,7 +35,7 @@ public class Task34 {
         for (int i = 0; i <numbers.size() ; i++) {
           sum += numbers.get(i);
         }
-        System.out.println(sum);
+        System.out.println("Сумма: " + sum);
 
         for (int i = 0; i <numbers.size() ; i++) {
             for (int j = i+1; j <numbers.size() ; j++) {
