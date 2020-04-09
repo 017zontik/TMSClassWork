@@ -6,15 +6,14 @@ import java.util.regex.Pattern;
 
 public class Task33 {
     public static void main(String[] args) {
-        try {
-            BufferedReader stream = new BufferedReader(new FileReader("streams.txt"));
+        try (BufferedReader stream = new BufferedReader(new FileReader("streams.txt"))) {
             String line = stream.readLine();
             int allWordsCounter = 0;
             int allPunctualCounter = 0;
             while (line != null) {
 
                 int wordsCounter = line.split("[\\s]+").length;
-                allWordsCounter +=wordsCounter;
+                allWordsCounter += wordsCounter;
 
                 Pattern punctuation = Pattern.compile("[,\\.-:;!\\?\"\\(\\)']");
 
@@ -27,9 +26,9 @@ public class Task33 {
                 line = stream.readLine();
 
             }
-            System.out.println("Количество слов: " + allWordsCounter );
-            System.out.println("Количество знаков препинания: " + allPunctualCounter );
-            stream.close();
+            System.out.println("Количество слов: " + allWordsCounter);
+            System.out.println("Количество знаков препинания: " + allPunctualCounter);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
