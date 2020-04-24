@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <title>Поиск фильмов</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+
+</head>
+<body>
+
+<div style="text-align: center">
+    <input id="search" name="text">
+    <button id="searchButton">Поиск</button>
+    <ul id="list"></ul>
+</div>
+<script>
+    document.getElementById("searchButton").onclick = function (e) {
+        let result = document.getElementById("search").value;
+
+        $.ajax({
+            url: 'https://api.themoviedb.org/3/search/multi?language=ru-RU&api_key=5d2c009fd1fe47cb745530ef708678bc',
+            data: {query: result},
+            success: function (data) {
+                for (let i = 0; i < data.results.length; i++) {
+                    let pTitle = $('<p class="title"/>').html(data.results[i].title);
+                    let pReleaseDate = $('<p/>').html(data.results[i].release_date);
+                    let pPopularity = $('<p/>').html(data.results[i].popularity);
+                    let li = $('<li/>');
+                    li.append(pTitle);
+                    li.append(pReleaseDate);
+                    li.append(pPopularity);
+                    $('#list').append(li);
+
+                }
+            }
+        });
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
